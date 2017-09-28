@@ -13,13 +13,16 @@ public class Main {
     public static void main(String[] args) {
 	// write your code here
         System.out.println("start");
-        String host = "10.111.24.144";
-        String port = "9000";
-        String keys = "PRODUCT_SERVER*";
+        String host = "127.0.0.1";
+        String port = "6379";
+        String keys = "keys*";
         if (args != null && args.length == 3) {
             host = args[0];
             port = args[1];
             keys = args[2];
+        } else {
+            System.out.println("params error");
+            return;
         }
         delKeys(new HostAndPort(host, Integer.parseInt(port)), keys);
         System.out.println("end");
